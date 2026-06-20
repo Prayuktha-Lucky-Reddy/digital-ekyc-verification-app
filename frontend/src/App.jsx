@@ -127,7 +127,7 @@ function App() {
 
       const response =
         await fetch(
-          '${API}/verify-user',
+          `${API}/verify-user`,
           {
             method: "POST",
             body: formData
