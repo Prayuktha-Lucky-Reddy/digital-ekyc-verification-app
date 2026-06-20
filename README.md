@@ -32,10 +32,11 @@ digital-ekyc-verification-app/
     ├── main.py
     ├── requirements.txt
     ├── routes/
-    │   ├── otp.py              # /send-otp, /verify-otp
+    │   ├── send_otp.py         # /send-otp, /verify-otp
     │   ├── document.py         # /upload-document, /process-document
-    │   ├── face.py             # /verify-face
-    │   └── verify.py           # /verify-user  ← main endpoint
+    │   ├── process_document.py # /process-document (OCR + face detect)
+    │   ├── verify_user.py      # /verify-user  ← main endpoint (OCR + face + result)
+    │   └── verify_face.py      # /verify-face  (face similarity score only)
     └── services/
         ├── otp_service.py      # OTP generation & validation
         ├── ocr_service.py      # EasyOCR text extraction
