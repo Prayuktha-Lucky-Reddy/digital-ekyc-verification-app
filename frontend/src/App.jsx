@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [step, setStep] = useState(1);
+  const API = "https://digital-ekyc-verification-app-production.up.railway.app"
 
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
@@ -28,7 +29,7 @@ function App() {
 
   const sendOtp = async () => {
     const response = await fetch(
-      `http://127.0.0.1:8000/send-otp?phone=${phone}`,
+      `${API}/send-otp?phone=${phone}`,
       {
         method: "POST"
       }
@@ -46,7 +47,7 @@ function App() {
 
   const verifyOtp = async () => {
     const response = await fetch(
-      `http://127.0.0.1:8000/verify-otp?phone=${phone}&otp=${otp}`,
+      `${API}/verify-otp?phone=${phone}&otp=${otp}`,
       {
         method: "POST"
       }
@@ -126,7 +127,7 @@ function App() {
 
       const response =
         await fetch(
-          "http://127.0.0.1:8000/verify-user",
+          '${API}/verify-user',
           {
             method: "POST",
             body: formData
@@ -515,4 +516,3 @@ function App() {
 }
 
 export default App;
-
